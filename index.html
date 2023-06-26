@@ -7,28 +7,50 @@
 			src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
 			type="text/javascript"
 		></script>
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-			crossorigin="anonymous"
-		/>
 
-		<script src="api.js"></script>
+		<script src="app.js"></script>
 		<link rel="stylesheet" href="style.css" />
 		<title>A-ZBookS</title>
 	</head>
 	<body>
-		<header id="header"></header>
-		<section id="main">
-			<div class="container text-center">
-				<div class="row">
-					<div class="col-3"><img src="pics/icon.jpeg" alt="image not found" /></div>
-					<div class="col-6">2 of 3 (wider)</div>
-					<div class="col">3 of 3</div>
-					<div class="col">3 of 3</div>
-				</div>
-			</div>
-		</section>
+		<header id="header">
+			<nav id="navbar">
+				<nav class="navbar navbar-expand-lg bg-body-tertiary">
+					<div class="row">
+						<div class="container-fluid">
+							<img
+								src="pics/icon.jpeg"
+								alt="image not found"
+								style="height: 5rem"
+							/>
+						</div>
+					</div>
+					<div class="col-5" id="website-name">
+						<h1>A-ZBookS.com</h1>
+					</div>
+					<div class="col-4">
+						<input type="text" id="search-input" placeholder="search here..." />
+					</div>
+					<div class="col-1">
+						<button id="search-btn" value="submit">Search</button>
+					</div>
+					<div class="col-2">
+						<select>
+							<option value="title">Title</option>
+							<option value="author-name">Author</option>
+							<option value="language">Language</option>
+						</select>
+					</div>
+				</nav>
+			</nav>
+		</header>
+
+	
 	</body>
+	<link
+		rel="stylesheet"
+		href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		crossorigin="anonymous"
+	/>
 </html>
