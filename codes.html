@@ -1,94 +1,116 @@
 <section id="main">
-			<main id="second-section" class="container">
-				<div class="row">
-					<div class="col-sm-3 mb-3 mb-sm-0">
-						<div class="card">
-							<img
-								src="Kabuli.jpeg"
-								class="card-img-top"
-								alt="image not found"
-							/>
-							<div class="card-body">
-								<h5 class="card-title">Special title treatment</h5>
-								<p class="card-text">
-									With supporting text below as a natural lead-in to additional
-									content.
-								</p>
-								<input
-									class="btn btn-primary"
-									type="button"
-									value="Kabuli"
-									name="kabuli"
-								/>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3 mb-3 mb-sm-0">
-						<div class="card">
-							<img
-								src="kabob.jpeg"
-								class="card-img-top"
-								alt="image not found"
-							/>
-							<div class="card-body">
-								<h5 class="card-title">Special title treatment</h5>
-								<p class="card-text">
-									With supporting text below as a natural lead-in to additional
-									content.
-								</p>
-								<input
-									class="btn btn-primary"
-									type="button"
-									value="Kabob"
-									name="Kabob"
-								/>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3 mb-3 mb-sm-0">
-						<div class="card">
-							<img
-								src="mantu.jpeg"
-								class="card-img-top"
-								alt="image not found"
-							/>
-							<div class="card-body">
-								<h5 class="card-title">Special title treatment</h5>
-								<p class="card-text">
-									With supporting text below as a natural lead-in to additional
-									content.
-								</p>
-								<input
-									class="btn btn-primary"
-									type="button"
-									value="Mantu"
-									name="mantu"
-								/>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3 mb-3 mb-sm-0">
-						<div class="card">
-							<img
-								src="bolani.jpeg"
-								class="card-img-top"
-								alt="image not found"
-							/>
-							<div class="card-body">
-								<h5 class="card-title">Special title treatment</h5>
-								<p class="card-text">
-									With supporting text below as a natural lead-in to additional
-									content.
-								</p>
-								<input
-									class="btn btn-primary"
-									type="button"
-									value="Bolani"
-									name="bolani"
-								/>
-							</div>
-						</div>
+	<main id="second-section" class="container">
+		<div class="row">
+			<div class="col-sm-3 mb-3 mb-sm-0">
+				<div class="card">
+					<img src="Kabuli.jpeg" class="card-img-top" alt="image not found" />
+					<div class="card-body">
+						<h5 class="card-title">Special title treatment</h5>
+						<p class="card-text">
+							With supporting text below as a natural lead-in to additional
+							content.
+						</p>
+						<input
+							class="btn btn-primary"
+							type="button"
+							value="Kabuli"
+							name="kabuli"
+						/>
 					</div>
 				</div>
-			</main>
-		</section>
+			</div>
+			<div class="col-sm-3 mb-3 mb-sm-0">
+				<div class="card">
+					<img src="kabob.jpeg" class="card-img-top" alt="image not found" />
+					<div class="card-body">
+						<h5 class="card-title">Special title treatment</h5>
+						<p class="card-text">
+							With supporting text below as a natural lead-in to additional
+							content.
+						</p>
+						<input
+							class="btn btn-primary"
+							type="button"
+							value="Kabob"
+							name="Kabob"
+						/>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3 mb-3 mb-sm-0">
+				<div class="card">
+					<img src="mantu.jpeg" class="card-img-top" alt="image not found" />
+					<div class="card-body">
+						<h5 class="card-title">Special title treatment</h5>
+						<p class="card-text">
+							With supporting text below as a natural lead-in to additional
+							content.
+						</p>
+						<input
+							class="btn btn-primary"
+							type="button"
+							value="Mantu"
+							name="mantu"
+						/>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3 mb-3 mb-sm-0">
+				<div class="card">
+					<img src="bolani.jpeg" class="card-img-top" alt="image not found" />
+					<div class="card-body">
+						<h5 class="card-title">Special title treatment</h5>
+						<p class="card-text">
+							With supporting text below as a natural lead-in to additional
+							content.
+						</p>
+						<input
+							class="btn btn-primary"
+							type="button"
+							value="Bolani"
+							name="bolani"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</section>
+
+// bookInfoBox.append( // `
+<p>
+	${bookTitle} <br />
+	${authorName} <br />
+	${language} <br />
+	${pages} <br />
+	${publishedYear}
+</p>
+` // ) // handleBookCover() // function handleBookCover() { //
+searchBtn.on('click', (e) => { // e.preventDefault() // const bookTitle =
+$('#search-input')[0].value // const searchURL =
+`https://openlibrary.org/search.json?title=${bookTitle}` // fetch(searchURL) //
+.then((res) => res.json()) // .then((data) => { // const coverId =
+data.docs[0].cover_i // handleBookCover() // function handleBookCover() { //
+coverPhoto.append( // `<span id="book-cover"
+	><img
+		width="100"
+		height="150"
+		src="https://covers.openlibrary.org/b/id/${coverId}.jpg"
+		alt="Book Cover Photo" /></span
+>` // ) // } // }) // }) // } // const authorName = `Author:
+${data.docs[0].author_name[0]}` // const language = `Language:
+${data.docs[0].language[0]}` // const pages = `Pages:
+${data.docs[0].number_of_pages_median}` // const publishedYear = `Published
+Year(s): ${ // data.docs[0].publish_year[data.docs[0].publish_year.length - 1]
+// }` // const coverId = data.docs[0].cover_i // handleBookCover() // function
+handleBookCover() { // coverPhoto.append( // `<span id="book-cover"
+	><img
+		width="100"
+		height="150"
+		src="https://covers.openlibrary.org/b/id/${coverId}.jpg"
+		alt="Book Cover Photo" /></span
+>` // ) // } // const authorName = `Author: ${data.docs[0].author_name[0]}` //
+const language = `Language: ${data.docs[0].language[0]}` // const pages =
+`Pages: ${data.docs[0].number_of_pages_median}` // const publishedYear =
+`Published Year(s): ${ //
+data.docs[0].publish_year[data.docs[0].publish_year.length - 1] // }`

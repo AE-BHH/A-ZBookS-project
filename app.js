@@ -1,5 +1,11 @@
 $(document).ready(function () {
 	const searchBtn = $('#search-btn')
+	const searchResultSection = $('#search-result-section')
+	const searchListContainer = $('#search-list-container')
+	const coverPhoto = $('.cover-photo')
+	const bookInfoBox = $('.book-info-box')
+
+	const bookFilterDropdown = $('#filter-dropdown')
 
 	handleSearch()
 	function handleSearch() {
@@ -13,18 +19,33 @@ $(document).ready(function () {
 			fetch(searchURL)
 				.then((res) => res.json())
 				.then((data) => {
-					console.log(data)
-					console.log(`Title: ${data.docs[0].title}`)
-					console.log(`Author: ${data.docs[0].author_name[0]}`)
-					console.log(`Language: ${data.docs[0].language[0]}`)
-					console.log(`Pages: ${data.docs[0].number_of_pages_median}`)
-					console.log(
-						`Published Year(s): ${
-							data.docs[0].publish_year[data.docs[0].publish_year.length - 1]
-						}`
-					)
+					data.docs.forEach((element) => {
+						let bookTitle = `Title: ${element.title}`
+						bookInfoBox.append(
+							`<div class="book-details-container">${bookTitle}</div>`
+						)
+
+						let coverId = element.cover_i
+						handleBookCover()
+						function handleBookCover() {
+							coverPhoto.append(
+								`<img width="100" height="150" margin= "50px" src="https://covers.openlibrary.org/b/id/${coverId}.jpg" alt="Book Cover Photo"/>`
+							)
+						}
+					})
 				})
 				.catch((err) => console.error(err.message))
+		})
+	}
+
+	getSearchType()
+	function getSearchType() {
+		bookFilterDropdown.on('change', (e) => {
+			e.preventDefault()
+
+			const selectedBookCategory = bookFilterDropdown.val()
+
+			console.log(`You selected: ${selectedBookCategory}`)
 		})
 	}
 })
