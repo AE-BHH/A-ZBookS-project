@@ -114,3 +114,19 @@ const language = `Language: ${data.docs[0].language[0]}` // const pages =
 `Pages: ${data.docs[0].number_of_pages_median}` // const publishedYear =
 `Published Year(s): ${ //
 data.docs[0].publish_year[data.docs[0].publish_year.length - 1] // }`
+
+
+
+getSearchType()
+						function getSearchType() {
+							bookFilterDropdown.on('change', (e) => {
+								e.preventDefault()
+								let searchURL = ''
+
+								if ((selectedFilter = 'Author')) {
+									searchURL = `https://openlibrary.org/search.json?author=${searchInput}`
+								} else {
+									searchURL = `https://openlibrary.org/search.json?title=${searchInput}`
+								}
+							})
+						}

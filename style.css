@@ -6,27 +6,64 @@
 body {
 	width: 100%;
 }
+#header {
+	background-color: #1687a7;
+    margin-bottom: 100px;
+}
+#icon {
+	width: 5rem;
+	border-radius: 50%;
+}
 #website-name {
-	color: black;
+	margin-right: 100px;
+}
+#website-name h1 {
+	color: white;
+	font-size: 50px;
 	font-weight: bold;
 }
 
 #search-input {
-	/* border-radius: 5px; */
-	width: 23rem;
-	height: 2rem;
+	width: 300px;
+	height: 35px;
+	border: none;
+	border-radius: 8px 0px 0px 8px;
+	font-size: 20px;
+	margin-right: 0;
+}
+
+#search-btn {
+	width: 100px;
+	height: 35px;
+	font-size: 24px;
+	font-weight: bold;
+	border: none;
+	border-radius: 0px 08px 8px 0px;
+}
+
+#filter-dropdown {
+	width: 180px;
+	height: 35px;
+	font-size: 24px;
+	font-weight: bold;
+	border: none;
+	border-radius: 8px;
+    margin: 20px;
 }
 
 #search-list-container {
 	display: flex;
 }
+.listContainer{
+    display: flex;
+    margin: 20px;
+}
 .cover-photo {
 	margin: 50px;
 }
 
-.book-details-container{
-    
-    height: 150px;
-    padding: 0 auto;
-    text-align: center;
+.book-details-container {
+	height: 150px;
+	padding: 0 auto;
+	text-align: left;
 }

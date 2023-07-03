@@ -18,27 +18,28 @@
 				<nav class="navbar navbar-expand-lg bg-body-tertiary">
 					<div class="row">
 						<div class="container-fluid">
-							<img
+							<img id="icon"
 								src="pics/icon.jpeg"
 								alt="image not found"
 								style="height: 5rem"
 							/>
 						</div>
 					</div>
-					<div class="col-5" id="website-name">
+					<div class="col-4" id="website-name">
 						<h1>A-ZBookS.com</h1>
 					</div>
-					<div class="col-4">
+					<div class="col-3">
 						<input type="text" id="search-input" placeholder="search here..." />
 					</div>
-					<div class="col-1">
+					<div class="col-1" id="btn-search">
 						<button id="search-btn" value="submit">Search</button>
 					</div>
 					<div class="col-2">
 						<select id="filter-dropdown">
 							<option value="title">Title</option>
-							<option value="author-name">Author</option>
-							<option value="language">Language</option>
+							<option value="author">Author</option>
+							<option value="subject">Subject</option>
+							<option value="isbn">ISBN Number</option>
 						</select>
 					</div>
 				</nav>
@@ -46,10 +47,10 @@
 		</header>
 		<!-- display the search result -->
 		<section id="search-result-section">
-			<div class="row" id="search-list-container">
-				<div class="col-1 cover-photo"></div>
-				<div class="col-6 book-info-box">
-					
+			<div class="row" id="searchListContainer">
+				<div class="listContainer">
+				<div class="col-2 coverPhoto"></div>
+				<div class="col-10 bookInfoBox"></div>
 				</div>
 			</div>
 		</section>
@@ -61,5 +62,3 @@
 		crossorigin="anonymous"
 	/>
 </html>
-
-

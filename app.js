@@ -1,51 +1,52 @@
 $(document).ready(function () {
+	const searchBoxInput = $('#search-input')
 	const searchBtn = $('#search-btn')
-	const searchResultSection = $('#search-result-section')
-	const searchListContainer = $('#search-list-container')
-	const coverPhoto = $('.cover-photo')
-	const bookInfoBox = $('.book-info-box')
-
+	const coverPhoto = $('.coverPhoto')
+	const bookInfoBox = $('.bookInfoBox')
 	const bookFilterDropdown = $('#filter-dropdown')
+
+    
 
 	handleSearch()
 	function handleSearch() {
 		searchBtn.on('click', (e) => {
 			e.preventDefault()
 			console.log('works!')
-			const bookTitle = $('#search-input')[0].value
+			const searchInput = searchBoxInput.val()
+			const selectedFilter = bookFilterDropdown.val()
 
-			const searchURL = `https://openlibrary.org/search.json?title=${bookTitle}`
+			const searchURL = `https://openlibrary.org/search.json?${selectedFilter}=${searchInput}`
 
 			fetch(searchURL)
 				.then((res) => res.json())
 				.then((data) => {
+					console.log(data)
+					console.log(data.docs)
 					data.docs.forEach((element) => {
-						let bookTitle = `Title: ${element.title}`
-						bookInfoBox.append(
-							`<div class="book-details-container">${bookTitle}</div>`
-						)
+						console.log(element)
 
-						let coverId = element.cover_i
-						handleBookCover()
-						function handleBookCover() {
+						getBookCover()
+						function getBookCover() {
+							let coverId = element.cover_i
 							coverPhoto.append(
-								`<img width="100" height="150" margin= "50px" src="https://covers.openlibrary.org/b/id/${coverId}.jpg" alt="Book Cover Photo"/>`
+								`<a class="bookLink" href="https://openlibrary.org${element.key}"><img width="100" height="150" margin= "50px" src="https://covers.openlibrary.org/b/id/${coverId}.jpg" alt="Book Cover Photo"/></a>`
+							)
+						}
+
+						getBookInfo()
+						function getBookInfo() {
+							let bookTitle = `Title: ${element.title}`
+							let bookAuthor = `Author: ${element.author_name}`
+							let language = `Language(s): ${element.language}`
+							let pages = `Pages: ${element.number_of_pages_median}`
+							let firstPublished = `First Published Year: ${element.first_publish_year}`
+							bookInfoBox.append(
+								`<div class="book-details-container">${bookTitle} <br/> ${bookAuthor} <br/> ${language} <br/> ${pages} <br/> ${firstPublished}</div>`
 							)
 						}
 					})
 				})
 				.catch((err) => console.error(err.message))
-		})
-	}
-
-	getSearchType()
-	function getSearchType() {
-		bookFilterDropdown.on('change', (e) => {
-			e.preventDefault()
-
-			const selectedBookCategory = bookFilterDropdown.val()
-
-			console.log(`You selected: ${selectedBookCategory}`)
 		})
 	}
 })
