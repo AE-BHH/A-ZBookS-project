@@ -1,11 +1,8 @@
 $(document).ready(function () {
 	const searchBoxInput = $('#search-input')
 	const searchBtn = $('#search-btn')
-	const coverPhoto = $('.coverPhoto')
-	const bookInfoBox = $('.bookInfoBox')
+	const listContainer = $('#search-list-container')
 	const bookFilterDropdown = $('#filter-dropdown')
-
-    
 
 	handleSearch()
 	function handleSearch() {
@@ -14,39 +11,49 @@ $(document).ready(function () {
 			console.log('works!')
 			const searchInput = searchBoxInput.val()
 			const selectedFilter = bookFilterDropdown.val()
+			if (searchInput === '') {
+				alert('Invalid input')
+			} else {
+				const searchURL = `https://openlibrary.org/search.json?${selectedFilter}=${searchInput}`
 
-			const searchURL = `https://openlibrary.org/search.json?${selectedFilter}=${searchInput}`
+				fetch(searchURL)
+					.then((res) => res.json())
+					.then((data) => {
+						data.docs.forEach((element) => {
 
-			fetch(searchURL)
-				.then((res) => res.json())
-				.then((data) => {
-					console.log(data)
-					console.log(data.docs)
-					data.docs.forEach((element) => {
-						console.log(element)
+                            const bookContainer = $('<div></div>').attr('class', 'row bookContainer')
+                            
+							getBookCover()
+							function getBookCover() {
+								let coverId = element.cover_i
+                                const coverPhoto = $('<div></div>').attr('class', 'col-4 bookImage')
+								coverPhoto.append(
+									`<a class="bookLink" href="https://openlibrary.org${element.key}"><img width="100" height="150" margin= "50px" src="https://covers.openlibrary.org/b/id/${coverId}.jpg" alt="Cover not found"/></a>`
+								)
+								bookContainer.append(coverPhoto)
+							}
 
-						getBookCover()
-						function getBookCover() {
-							let coverId = element.cover_i
-							coverPhoto.append(
-								`<a class="bookLink" href="https://openlibrary.org${element.key}"><img width="100" height="150" margin= "50px" src="https://covers.openlibrary.org/b/id/${coverId}.jpg" alt="Book Cover Photo"/></a>`
-							)
-						}
+							getBookInfo()
+							function getBookInfo() {
+								let bookAuthor = `Author: ${element.author_name}`
+								let language = `Language(s): ${element.language}`
+								let pages = `Pages: ${element.number_of_pages_median}`
+								let firstPublished = `First Published Year: ${element.first_publish_year}`
 
-						getBookInfo()
-						function getBookInfo() {
-							let bookTitle = `Title: ${element.title}`
-							let bookAuthor = `Author: ${element.author_name}`
-							let language = `Language(s): ${element.language}`
-							let pages = `Pages: ${element.number_of_pages_median}`
-							let firstPublished = `First Published Year: ${element.first_publish_year}`
-							bookInfoBox.append(
-								`<div class="book-details-container">${bookTitle} <br/> ${bookAuthor} <br/> ${language} <br/> ${pages} <br/> ${firstPublished}</div>`
-							)
-						}
+                                const bookInfo = $('<div></div>').attr('class', 'col bookInfo')
+
+
+								bookInfo.append(
+									`<a href="https://openlibrary.org${element.key}">${element.title}</a> <br/> ${bookAuthor} <br/> ${language} <br/> ${pages} <br/> ${firstPublished}`
+								)
+                                bookContainer.append(bookInfo)
+								
+							}
+							listContainer.append(bookContainer)
+						})
 					})
-				})
-				.catch((err) => console.error(err.message))
+					.catch((err) => console.error(err.message))
+			}
 		})
 	}
 })

@@ -7,11 +7,14 @@ body {
 	width: 100%;
 }
 #header {
+    height: 150px;
+    padding-top: 25px;
 	background-color: #1687a7;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
 }
 #icon {
-	width: 5rem;
+	/* width: 70px; */
+    height: 60px;
 	border-radius: 50%;
 }
 #website-name {
@@ -29,7 +32,7 @@ body {
 	border: none;
 	border-radius: 8px 0px 0px 8px;
 	font-size: 20px;
-	margin-right: 0;
+	padding-left: 10px;
 }
 
 #search-btn {
@@ -51,19 +54,15 @@ body {
     margin: 20px;
 }
 
-#search-list-container {
-	display: flex;
-}
-.listContainer{
-    display: flex;
-    margin: 20px;
-}
-.cover-photo {
-	margin: 50px;
+#search-list-container{
+    background-color: bisque;
 }
 
-.book-details-container {
-	height: 150px;
-	padding: 0 auto;
-	text-align: left;
+.bookContainer{
+    padding: 50px;
+    /* border: 1px dashed gray; */
+}
+
+.bookImage, .bookInfo{
+    background-color: #DEBA9D ;
 }
