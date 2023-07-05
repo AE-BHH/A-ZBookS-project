@@ -3,11 +3,14 @@ $(document).ready(function () {
 	const searchBtn = $('#search-btn')
 	const listContainer = $('#search-list-container')
 	const bookFilterDropdown = $('#filter-dropdown')
+    const main = $('#main')
 
 	handleSearch()
 	function handleSearch() {
 		searchBtn.on('click', (e) => {
 			e.preventDefault()
+            main.hide()
+            searchBoxInput.empty();
 			console.log('works!')
 			const searchInput = searchBoxInput.val()
 			const selectedFilter = bookFilterDropdown.val()
@@ -28,7 +31,7 @@ $(document).ready(function () {
 								let coverId = element.cover_i
                                 const coverPhoto = $('<div></div>').attr('class', 'col-4 bookImage')
 								coverPhoto.append(
-									`<a class="bookLink" href="https://openlibrary.org${element.key}"><img width="100" height="150" margin= "50px" src="https://covers.openlibrary.org/b/id/${coverId}.jpg" alt="Cover not found"/></a>`
+									`<span class="imageContainer"><a class="bookLink" href="https://openlibrary.org${element.key}"><img width="100" height="150" margin= "50px" src="https://covers.openlibrary.org/b/id/${coverId}.jpg" alt="Cover not found"/></a></span>`
 								)
 								bookContainer.append(coverPhoto)
 							}
@@ -44,7 +47,7 @@ $(document).ready(function () {
 
 
 								bookInfo.append(
-									`<a href="https://openlibrary.org${element.key}">${element.title}</a> <br/> ${bookAuthor} <br/> ${language} <br/> ${pages} <br/> ${firstPublished}`
+									`<span class="bookInfoContainer"><a href="https://openlibrary.org${element.key}">${element.title}</a> <br/> ${bookAuthor} <br/> ${language} <br/> ${pages} <br/> ${firstPublished}</span>`
 								)
                                 bookContainer.append(bookInfo)
 								
