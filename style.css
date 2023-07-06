@@ -5,6 +5,8 @@
 }
 body {
 	width: 100%;
+	/* max-width: 1400px; */
+	min-width: 768px;
 }
 #header {
 	height: 150px;
@@ -18,46 +20,70 @@ body {
 	border-radius: 50%;
 }
 #website-name {
-	margin-right: 100px;
+	margin: auto;
 }
+@media (max-width: 1234px) { 
+	#website-name{
+		display: none;
+	}
+ }
+
 #website-name h1 {
 	color: white;
-	font-size: 50px;
+	font-size: 40px;
 	font-weight: bold;
+	margin: auto;
+}
+.input-group{
+	margin: auto;
+
 }
 
 #search-input {
-	width: 300px;
+	width: auto;
 	height: 35px;
 	border: none;
 	border-radius: 8px 0px 0px 8px;
 	font-size: 20px;
-	padding-left: 10px;
+	padding-left: 20px;
+	margin: auto;
 }
+@media (min-width: 1450px) { 
+	#search-input{
+		width: 300px;
+	}
+ }
 
 #search-btn {
-	width: 100px;
+	color:black;
+	width: auto;
 	height: 35px;
 	font-size: 24px;
 	font-weight: bold;
 	border: none;
 	border-radius: 0px 08px 8px 0px;
-	margin-left: -12px;
+	padding: 0 5px;
 	background-color: lightgray;
+	margin-right: auto;
 }
 
 #filter-dropdown {
-	width: 180px;
+	width: auto;
 	height: 35px;
-	font-size: 24px;
+	font-size: 20px;
 	font-weight: bold;
 	border: none;
 	border-radius: 8px;
-	margin: 20px;
+	margin: auto;
 }
 
 #search-list-container {
 	background-color: bisque;
+}
+
+#spinner {
+	margin-top: 100px;
+	opacity: 0.7;
 }
 
 .bookContainer {
@@ -104,13 +130,17 @@ body {
 	font-size: 16px;
 }
 
+.card{
+    text-align: center;
+}
+
 .readBtn {
 	background-color: #1687a7;
 	color: white;
 	font-size: 16px;
 	font-weight: bold;
 	text-align: center;
-	margin-left: 35px;
+
 	padding: 5px 30px;
 	border: none;
 	border-radius: 8px;

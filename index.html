@@ -14,27 +14,36 @@
 	</head>
 	<body>
 		<header id="header">
-			<nav id="navbar">
-				<nav class="navbar navbar-expand-lg bg-body-tertiary">
-					<div class="row">
-						<div class="container-fluid">
-							<img
-								id="icon"
-								src="pics/icon.jpeg"
-								alt="image not found"
-								style="height: 5rem"
-							/>
-						</div>
+			<nav class="navbar navbar-expand-lg bg-body-tertiary">
+				<div class="container-fluid">
+					<div>
+						<img
+							id="icon"
+							src="pics/icon.jpeg"
+							alt="image not found"
+							style="height: 5rem"
+						/>
 					</div>
+
 					<div class="col-4" id="website-name">
 						<h1>A-ZBookS.com</h1>
 					</div>
-					<div class="col-3">
-						<input type="text" id="search-input" placeholder="type to search here..." />
-					</div>
-					<div class="col-1" id="btn-search">
-						<button id="search-btn" value="submit">Search</button>
-					</div>
+					
+						<div class="input-group">
+							<input
+								type="text"
+								id="search-input"
+								placeholder="type to search here..."
+							/>
+							<button
+								id="search-btn"
+								class="btn"
+								type="button"
+							>
+								Search
+							</button>
+						</div>
+					
 					<div class="col-2">
 						<select id="filter-dropdown">
 							<option value="title">Title</option>
@@ -43,64 +52,112 @@
 							<option value="isbn">ISBN Number</option>
 						</select>
 					</div>
-				</nav>
+				</div>
 			</nav>
 		</header>
+
 		<!-- display the search result -->
 		<section id="search-result-section">
 			<div class="container" id="search-list-container"></div>
 		</section>
-<section id="main">
-	<main id="second-section" class="container">
-		<div class="row">
-			<div class="col-sm-3 mb-3 mb-sm-0">
-				<div class="card">
-					<img src="/pics/img1.jpeg" class="card-img-top" alt="image not found" />
-					<div class="card-body">
-						<h5 class="card-title">Author: Kathy Peel</h5>
-						<h5 class="card-title">ISBN: 1414316194</h5>
-						
-						<button type="button" class="readBtn"><a href="https://openlibrary.org/works/OL1894173W/The_Busy_Mom%27s_Guide_to_a_Happy_Organized_Home?edition=ia%3Abusymomsguidetoh0000peel">Read more...</a></button>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-3 mb-3 mb-sm-0">
-				<div class="card">
-					<img src="/pics/img2.jpeg" class="card-img-top" alt="image not found" />
-					<div class="card-body">
-						<h5 class="card-title">Author: Josephine A. Foster</h5>
-						<h5 class="card-title">ISBN: 0884217795</h5>
-						
-						<button type="button" class="readBtn"><a href="https://openlibrary.org/works/OL17924312W/Creative_living?edition=ia%3Acreativelivingba00newy">Read more...</a></button>
-					</div>
-				</div>
-			</div>			
-			<div class="col-sm-3 mb-3 mb-sm-0">
-				<div class="card">
-					<img src="/pics/img3.jpeg" class="card-img-top" alt="image not found" />
-					<div class="card-body">
-						<h5 class="card-title">Author: Tahereh Mafi</h5>
-						<h5 class="card-title">ISBN: 1414316194</h5>
-						
-						<button type="button" class="readBtn"><a href="https://openlibrary.org/works/OL16014245W/Shatter_Me?edition=ia%3Ashatterme00mafi_0">Read more...</a></button>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-3 mb-3 mb-sm-0">
-				<div class="card">
-					<img src="/pics/img4.jpeg" class="card-img-top" alt="image not found" />
-					<div class="card-body">
-						<h5 class="card-title">Author: Catherine Maurice</h5>
-						<h5 class="card-title">ISBN: 0679408630</h5>
-						
-						<button type="button" class="readBtn"><a href="https://openlibrary.org/works/OL3976374W/Let_me_hear_your_voice?edition=ia%3Aletmehearyourvoi00cath">Read more...</a></button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</main>
-</section>
 
+		<section id="spinner" class="text-center">
+			<div class="align-items-center">
+				<strong>Searching...</strong>
+				<div
+					class="spinner-border ms-auto"
+					role="status"
+					aria-hidden="true"
+				></div>
+			</div>
+		</section>
+
+		<section id="main">
+			<main id="second-section" class="container">
+				<div class="row">
+					<div class="col-sm-3 mb-3 mb-sm-0">
+						<div class="card">
+							<img
+								src="/pics/img1.jpeg"
+								class="card-img-top"
+								alt="image not found"
+							/>
+							<div class="card-body">
+								<h5 class="card-title">Author: Kathy Peel</h5>
+								<h5 class="card-title">ISBN: 1414316194</h5>
+
+								<button type="button" class="readBtn">
+									<a
+										href="https://openlibrary.org/works/OL1894173W/The_Busy_Mom%27s_Guide_to_a_Happy_Organized_Home?edition=ia%3Abusymomsguidetoh0000peel"
+										>Read more...</a
+									>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3 mb-3 mb-sm-0">
+						<div class="card">
+							<img
+								src="/pics/img2.jpeg"
+								class="card-img-top"
+								alt="image not found"
+							/>
+							<div class="card-body">
+								<h5 class="card-title">Author: Josephine A. Foster</h5>
+								<h5 class="card-title">ISBN: 0884217795</h5>
+
+								<button type="button" class="readBtn">
+									<a
+										href="https://openlibrary.org/works/OL17924312W/Creative_living?edition=ia%3Acreativelivingba00newy"
+										>Read more...</a
+									>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3 mb-3 mb-sm-0">
+						<div class="card">
+							<img
+								src="/pics/img3.jpeg"
+								class="card-img-top"
+								alt="image not found"
+							/>
+							<div class="card-body">
+								<h5 class="card-title">Author: Tahereh Mafi</h5>
+								<h5 class="card-title">ISBN: 1414316194</h5>
+
+								<button type="button" class="readBtn">
+									<a
+										href="https://openlibrary.org/works/OL16014245W/Shatter_Me?edition=ia%3Ashatterme00mafi_0"
+										>Read more...</a
+									>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3 mb-3 mb-sm-0">
+						<div class="card">
+							<img
+								src="/pics/img4.jpeg"
+								class="card-img-top"
+								alt="image not found"
+							/>
+							<div class="card-body">
+								<h5 class="card-title">Author: Catherine Maurice</h5>
+								<h5 class="card-title">ISBN: 0679408630</h5>
+
+								<button type="button" class="readBtn">
+									<a
+										href="https://openlibrary.org/works/OL3976374W/Let_me_hear_your_voice?edition=ia%3Aletmehearyourvoi00cath"
+										>Read more...</a
+									>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</section>
 	</body>
 	<link
 		rel="stylesheet"
